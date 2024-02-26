@@ -15,21 +15,21 @@ public class LoggingAspect {
     // Pointcut - execution(* PACKAGE.*.*(..))
     //execution(* com.java/com/learn/springaop/aop/data.*.*(..))
     //If i want to intercept everything: execution(* com.java/com/learn/springaop/aop/*.*.*(..))
-    @Before("execution(* com.learn.springaop.aop.business.*.*(..))")
+    @Before("com.learn.springaop.aop.aspects.CommonPointcutConfiq.businessPackageConfiq()")
     public void logMethodCallBeforeExecution(JoinPoint joinPoint) {
 
         logger.info("Before Aspect - {} is called - with arguments: {}",
                 joinPoint, joinPoint.getArgs());
     }
 
-    @After("execution(* com.learn.springaop.aop.*.*.*(..))")
+    @After("com.learn.springaop.aop.aspects.CommonPointcutConfiq.dataPackageConfiqUsingBean()")
     public void logMethodCallAfterExecution(JoinPoint joinPoint) {
 
-        logger.info("After Aspect - {} has executed", joinPoint);
+        logger.info("+++After Aspect - {} has executed", joinPoint);
     }
 
     @AfterThrowing(
-            pointcut = "execution(* com.learn.springaop.aop.*.*.*(..))",
+            pointcut = "com.learn.springaop.aop.aspects.CommonPointcutConfiq.businessAndDataPackageConfiq()",
             throwing = "exception"
     )
     public void logMethodCallAfterException(JoinPoint joinPoint, Exception exception) {
@@ -39,7 +39,7 @@ public class LoggingAspect {
     }
 
     @AfterReturning(
-            pointcut = "execution(* com.learn.springaop.aop.*.*.*(..))",
+            pointcut = "com.learn.springaop.aop.aspects.CommonPointcutConfiq.dataPackageConfiq()",
             returning = "resultValue"
     )
     public void logMethodCallAfterSuccessfulExecution(JoinPoint joinPoint, Object resultValue) {

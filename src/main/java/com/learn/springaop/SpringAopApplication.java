@@ -28,6 +28,6 @@ public class SpringAopApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         logger.info("BusinessService1 value returned is {} 🤖", businessService1.calculateMax());
-        logger.info("BusinessService2 value returned is {} 🤖", businessService2.calculateMin());
+        logger.info("BusinessService2 value returned is {} 🤖🤖", businessService2.calculateMin());
     }
 }

@@ -1,5 +1,6 @@
 package com.learn.springaop.aop.business;
 
+import com.learn.springaop.aop.annotations.TrackTime;
 import com.learn.springaop.aop.data.DataService1;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ public class BusinessService1 {
         this.dataService1 = dataService1;
     }
 
+    @TrackTime
     public int calculateMax() throws InterruptedException {
         int[] data = dataService1.retrieveData();
 

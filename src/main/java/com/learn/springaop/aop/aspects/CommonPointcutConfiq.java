@@ -15,4 +15,7 @@ public class CommonPointcutConfiq {
 
     @Pointcut("bean(*Service*)")
     public void dataPackageConfiqUsingBean() {}
+
+    @Pointcut("@annotation(com.learn.springaop.aop.annotations.TrackTime)")
+    public void trackTimeAnnotation() {}
 }

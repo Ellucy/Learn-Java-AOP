@@ -16,6 +16,9 @@ public class BusinessService1 {
 
     public int calculateMax() {
         int[] data = dataService1.retrieveData();
+
+//        @After is called both for successful executions and for executions that throw an exception.
+//        throw new RuntimeException("Something went wrong!");
         return Arrays.stream(data).max().orElse(0);
     }
 }

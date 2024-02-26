@@ -14,9 +14,10 @@ public class BusinessService1 {
         this.dataService1 = dataService1;
     }
 
-    public int calculateMax() {
+    public int calculateMax() throws InterruptedException {
         int[] data = dataService1.retrieveData();
 
+        Thread.sleep(30);
 //        @After is called both for successful executions and for executions that throw an exception.
 //        throw new RuntimeException("Something went wrong!");
         return Arrays.stream(data).max().orElse(0);
